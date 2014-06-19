@@ -28,9 +28,11 @@ Meteor.Mandrill = {
 
         try {
             result = HTTP.post(url, options);
-        } catch (e) {
-            console.log(e.stack);
+        } catch (err) {
+            var code = err.response.statusCode,
+                type = err.response.data.error.type,
+                details = err.response.data.error.message;
+            throw new Meteor.Error(code, type, details);
         }
-
     }
 };
