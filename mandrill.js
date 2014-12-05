@@ -1,11 +1,12 @@
 Meteor.Mandrill = {
+    options: {},
     config: function (options) {
-        var host, key, port, username;
-        username = options["username"];
-        key = options["key"];
-        host = "smtp.mandrillapp.com";
-        port = "587";
-        process.env.MAIL_URL = "smtp://" + username + ":" + key + "@" + host + ":" + port + "/";
+        this.options.username = options["username"];
+        this.options.key = options["key"];
+        this.options.host = "smtp.mandrillapp.com";
+        this.options.port = "587";
+        // setn the environment SMTP server
+        process.env.MAIL_URL = "smtp://" + this.options.username + ":" + this.options.key + "@" + this.options.host + ":" + this.options.port + "/";
     },
     send: function (options) {
         Email.send(options);
@@ -16,7 +17,7 @@ Meteor.Mandrill = {
 
         options = {
             "data": {
-                "key": options.key,
+                "key": options.key || this.options.key,
                 "template_name": options.template_name,
                 "template_content": options.template_content,
                 "message": options.message,
@@ -32,7 +33,7 @@ Meteor.Mandrill = {
             var code = err.response.statusCode,
                 type = err.response.data.error.type,
                 details = err.response.data.error.message;
-            throw new Meteor.Error(code, type, details);
+            console.error(code, type, details);
         }
     }
 };

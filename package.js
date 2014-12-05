@@ -1,7 +1,13 @@
 Package.describe({
-  summary: "send email via Mandrill"
+  "summary": "Send email via Mandrill's send-template.json",
+  "git": "https://github.com/Wylio/meteor-mandrill",
+  "version": "0.2.0",
+  "name": "wylio:mandrill"
 });
 
-Package.on_use(function(api) {
-  api.add_files('mandrill.js', 'server');
+Package.onUse(function(api) {
+    api.versionsFrom('METEOR@1.0');
+    api.use('email');
+    api.use('http');
+    api.addFiles('mandrill.js', 'server');
 });
