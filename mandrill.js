@@ -28,12 +28,14 @@ Meteor.Mandrill = {
         };
 
         try {
-            result = HTTP.post(url, options);
+            return HTTP.post(url, options);
         } catch (err) {
+            /*
             var code = err.response.statusCode,
                 type = err.response.data.error.type,
                 details = err.response.data.error.message;
-            console.error(code, type, details);
+            */
+            console.error(err);
         }
     }
 };
