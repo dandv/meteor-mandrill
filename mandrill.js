@@ -32,5 +32,62 @@ Meteor.Mandrill = {
         } catch (err) {
             console.error(err);
         }
+    },
+    renderTemplate: function (options, callback) {
+        var url = "https://mandrillapp.com/api/1.0/templates/render.json";
+
+        try {
+            // if a callback is provided do an asynch call
+            if (!! callback) HTTP.post(url, { data: options }, callback);
+
+            // if no callback do a synchronous call and return the result
+            else return HTTP.post(url, { data: options });
+
+        } catch (e) {
+            console.log(e.stack);
+        }
+    },
+    infoTemplate: function (options, callback) {
+        var url = "https://mandrillapp.com/api/1.0/templates/info.json";
+
+        try {
+            // if a callback is provided do an asynch call
+            if (!! callback) HTTP.post(url, { data: options }, callback);
+
+            // if no callback do a synchronous call and return the result
+            else return HTTP.post(url, { data: options });
+
+        } catch (e) {
+            console.log(e.stack);
+        }
+
+    },
+    listTemplates: function (options, callback) {
+        var url = "https://mandrillapp.com/api/1.0/templates/list.json";
+
+        try {
+            // if a callback is provided do an asynch call
+            if (!! callback) HTTP.post(url, { data: options }, callback);
+
+            // if no callback do a synchronous call and return the result
+            else return HTTP.post(url, { data: options });
+
+        } catch (e) {
+            console.log(e.stack);
+        }
+    },
+    timeseriesTemplate: function (options, callback) {
+        var url = "https://mandrillapp.com/api/1.0/templates/time-series.json";
+
+        try {
+            // if a callback is provided do an asynch call
+            if (!! callback) HTTP.post(url, { data: options }, callback);
+
+            // if no callback do a synchronous call and return the result
+            else return HTTP.post(url, { data: options });
+
+        } catch (e) {
+            console.log(e.stack);
+        }
     }
 };
