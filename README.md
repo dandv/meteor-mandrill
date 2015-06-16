@@ -3,9 +3,11 @@ Mandrill for Meteor
 
 Meteor package for sending email via Mandrill
 
+Forked from Wylio/meteor-mandrill.  Added functions renderTemplate, infoTemplate, listTemplates and timeseriesTemplate.
+
 ##  Installation
 
-    $ meteor add wylio:mandrill
+    $ meteor add dan335:mandrill
 
 
 ### Example Usage for SMTP email
