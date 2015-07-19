@@ -1,9 +1,9 @@
 Mandrill for Meteor
 ===============
 
-Meteor package for sending email via Mandrill
+Meteor package for sending email via [Mandrill's HTTP POST API](https://mandrillapp.com/api/docs/).
 
-Forked from Wylio/meteor-mandrill.  Added functions renderTemplate, infoTemplate, listTemplates and timeseriesTemplate.
+Forked from Wylio/meteor-mandrill.  Added functions `renderTemplate`, `infoTemplate`, `listTemplates` and `timeseriesTemplate`.
 
 ##  Installation
 
@@ -29,7 +29,8 @@ Forked from Wylio/meteor-mandrill.  Added functions renderTemplate, infoTemplate
     };
 
 ### Example API usage
- Read more on how to use merge tags in the [Mandrill docs.](http://help.mandrill.com/entries/21678522-How-do-I-use-merge-tags-to-add-dynamic-content-)
+
+Read more on how to use merge tags in the [Mandrill docs](http://help.mandrill.com/entries/21678522-How-do-I-use-merge-tags-to-add-dynamic-content-).
 
 The `sendTemplate` method uses Mandrill's `https://mandrillapp.com/api/1.0/messages/send-template.json` call.
 
@@ -69,3 +70,5 @@ Find out what else you can send, including how to send [mc:edit](http://help.man
             ]
         }
     });
+
+Note that [renderTemplate doesn't support Handlebars yet](http://longreply.com/r/af605d8b).
